@@ -1,5 +1,6 @@
 from glob import glob
 import json
+from cupshelpers import Printer
 import requests
 from sympy import false, true
 import wget
@@ -13,6 +14,12 @@ user_profile = os.path.expanduser("~")
 proton_path = f"{user_profile}/.steam/root/compatibilitytools.d/"
 print(f"proton-ge will be installed in{proton_path}")
 
+# check if proton_path exists
+if not os.path.exists(proton_path):
+    print("the standard proton path does not exist")
+    print("please enter the path where you want to install proton-ge")
+    proton_path = input("path: ")
+    print(f"proton-ge will be installed in{proton_path}")
 
 api_url = "https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases"
 json_load = json.loads(requests.get(api_url).text)
