@@ -1,6 +1,5 @@
 from glob import glob
 import json
-from cupshelpers import Printer
 import requests
 from sympy import false, true
 import wget
